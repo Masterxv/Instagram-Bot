@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2036
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InstagramBot", "InstagramBot\InstagramBot.csproj", "{477D6912-D77F-40D4-9C84-51D8F76F636C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{477D6912-D77F-40D4-9C84-51D8F76F636C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{477D6912-D77F-40D4-9C84-51D8F76F636C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{477D6912-D77F-40D4-9C84-51D8F76F636C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{477D6912-D77F-40D4-9C84-51D8F76F636C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2FD93D38-4665-4FC6-B8AC-4459B3C02EB9}
+	EndGlobalSection
+EndGlobal
