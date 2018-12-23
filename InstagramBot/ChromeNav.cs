@@ -67,18 +67,12 @@ namespace InstagramBot
 
         public static Point GetLocationOfElementById(InputSimulator sim, string botName, string id)
         {
-            OpenInterface(sim);
+            OpenConsole(sim);
             sim.Keyboard.TextEntry($"element = document.getElementsById('{id}'); " +
                 $"alert(elements[e].getBoundingClientRect().left + ',' + alert(elements[e].getBoundingClientRect().top );");
             sim.Keyboard.KeyPress(VirtualKeyCode.RETURN);
 
-            System.Threading.Thread.Sleep(1250);
-            LeftClick(950, 140);
-            System.Threading.Thread.Sleep(1250);
-            sim.Keyboard.ModifiedKeyStroke(new[] { VirtualKeyCode.CONTROL }, VirtualKeyCode.VK_A);
-            System.Threading.Thread.Sleep(1250);
-            sim.Keyboard.ModifiedKeyStroke(new[] { VirtualKeyCode.CONTROL }, VirtualKeyCode.VK_C);
-            string clip = Clipboard.GetText(TextDataFormat.Text);
+            string clip = GetAlert(sim);
             return new Point((int)double.Parse(clip.Split(',')[0]), (int)double.Parse(clip.Split(',')[1]));
         }
 
@@ -116,7 +110,7 @@ namespace InstagramBot
 
         public static string GetAlert(InputSimulator sim)
         {
-            LeftClick(950, 140);
+            LeftClick(950, 150);
             System.Threading.Thread.Sleep(500);
             sim.Keyboard.ModifiedKeyStroke(new[] { VirtualKeyCode.CONTROL }, VirtualKeyCode.VK_A);
             System.Threading.Thread.Sleep(25);
@@ -151,7 +145,7 @@ namespace InstagramBot
 
         public static void NavigateToUser(string userName, Process chrome)
         {
-            chrome.Kill();
+            //chrome.Kill();
             chrome = new Process()
             {
                 StartInfo = new ProcessStartInfo("C:/Program Files (x86)/Google/Chrome/Application/chrome.exe", $"www.instagram.com/{userName}")
@@ -159,7 +153,39 @@ namespace InstagramBot
             chrome.Start();
         }
 
+        public static List<string> GetFollowers(InputSimulator sim, string botName)
+        {
+            List<string> result = new List<string>();
+            List<string> newResult = new List<string>();
+            ChromeNav.OpenConsole(sim);
+            Point followersPoint = ChromeNav.GetLocationOfElementByHref(sim, $"https://www.instagram.com/{botName}/followers/");
+            ChromeNav.LeftClick(followersPoint);
+            //can change to point to first follower.
+            Cursor.Position = new Point(650, 500);
+            System.Threading.Thread.Sleep(1000);
+            sim.Mouse.VerticalScroll(-5);
+            int scrollAmount = 30;
+            for (int i = 0; i < scrollAmount; i++)
+            {
+                System.Threading.Thread.Sleep(500);
+                sim.Mouse.VerticalScroll(-5);
+            }
 
+            newResult = GetElementsByClassName(sim, "notranslate");
+            while (newResult.Count != result.Count)
+            {
+                result = newResult;
+                Cursor.Position = new Point(650, 500);
+                scrollAmount *= 2;
+                for (int i = 0; i < scrollAmount; i++)
+                {
+                    System.Threading.Thread.Sleep(500);
+                    sim.Mouse.VerticalScroll(-5);
+                }
+                newResult = GetElementsByClassName(sim, "notranslate");
+            }
+            return result;
+        }
         public static List<string> GetFollowing(InputSimulator sim, string botName)
         {
             List<string> result = new List<string>();

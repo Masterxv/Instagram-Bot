@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,6 +49,13 @@ namespace InstagramBot
         }
 
         private string _BotName;
+        private Client _Client;
+
+        public Client BotClient
+        {
+            get { return _Client; }
+            set { _Client = value; }
+        }
 
         public string BotName
         {
@@ -70,8 +78,18 @@ namespace InstagramBot
                 StartInfo = new ProcessStartInfo("C:/Program Files (x86)/Google/Chrome/Application/chrome.exe", $"www.instagram.com/{_BotName}")
             };
             _ChromeProcess.Start();
+            
             System.Threading.Thread.Sleep(3000);
-            ChromeNav.NavigateToUser("idf_confessions", _ChromeProcess);
+            //ChromeNav.NavigateToUser("elian.ziv", _ChromeProcess);
+
+                _Client = new Client(new System.Net.IPEndPoint(IPAddress.Parse("127.0.0.1"), 12345));
+                _Client.Connect();
+                _Client.SendFollowing("eliran.ziv", new List<string> { "abc", "def" });
+           while(true)
+            {
+                System.Threading.Thread.Sleep(100);
+            }
+            
         }
 
         public void GetFollowers ()

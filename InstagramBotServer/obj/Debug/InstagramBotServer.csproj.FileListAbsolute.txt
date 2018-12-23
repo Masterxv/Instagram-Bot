@@ -1,0 +1,11 @@
+C:\Users\Elira\source\repos\Instagram-Bot\InstagramBotServer\bin\Debug\InstagramBotServer.exe.config
+C:\Users\Elira\source\repos\Instagram-Bot\InstagramBotServer\bin\Debug\InstagramBotServer.exe
+C:\Users\Elira\source\repos\Instagram-Bot\InstagramBotServer\bin\Debug\InstagramBotServer.pdb
+C:\Users\Elira\source\repos\Instagram-Bot\InstagramBotServer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Elira\source\repos\Instagram-Bot\InstagramBotServer\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Elira\source\repos\Instagram-Bot\InstagramBotServer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Elira\source\repos\Instagram-Bot\InstagramBotServer\obj\Debug\InstagramBotServer.csprojAssemblyReference.cache
+C:\Users\Elira\source\repos\Instagram-Bot\InstagramBotServer\obj\Debug\InstagramBotServer.csproj.CoreCompileInputs.cache
+C:\Users\Elira\source\repos\Instagram-Bot\InstagramBotServer\obj\Debug\InstagramBotServer.csproj.CopyComplete
+C:\Users\Elira\source\repos\Instagram-Bot\InstagramBotServer\obj\Debug\InstagramBotServer.exe
+C:\Users\Elira\source\repos\Instagram-Bot\InstagramBotServer\obj\Debug\InstagramBotServer.pdb
